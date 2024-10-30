@@ -5,7 +5,13 @@ description = "Default template for PDM package"
 authors = [
     {name = "Hkaar", email = "HkaarDev@gmail.com"},
 ]
-dependencies = []
+dependencies = [
+    "fastapi[standard]>=0.115.4",
+    "sqlmodel>=0.0.22",
+    "aiomysql>=0.2.0",
+    "greenlet>=3.1.1",
+    "alembic>=1.13.3",
+]
 requires-python = "==3.13.*"
 readme = "README.md"
 license = {text = "Apache 2.0"}
