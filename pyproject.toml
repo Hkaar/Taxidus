@@ -19,3 +19,10 @@ license = {text = "Apache 2.0"}
 
 [tool.pdm]
 distribution = false
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "ruff>=0.7.1",
+    "mypy>=1.13.0",
+    "pytest>=8.3.3",
+]
