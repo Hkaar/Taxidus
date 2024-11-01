@@ -1,0 +1,74 @@
+name: CI
+
+on: 
+  push:
+    branches:
+      - master
+      - dev
+    paths-ignore:
+      - '**.md'
+      - 'LICENSE'
+
+jobs:
+  lint:
+    name: Linting
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      
+      - name: Set up PDM
+        uses: pdm-project/setup-pdm@v4
+    
+      - name: Install dependencies
+        run: pdm install -d
+
+      - name: Run linter
+        run: pdm run ruff check src
+
+  static-analysis:
+    name: Static analysis
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      
+      - name: Set up PDM
+        uses: pdm-project/setup-pdm@v4
+    
+      - name: Install dependencies
+        run: pdm install -d
+        
+      - name: Run static analyzer
+        run: pdm run mypy src
+
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      
+      - name: Set up PDM
+        uses: pdm-project/setup-pdm@v4
+    
+      - name: Install dependencies
+        run: pdm install -d
+
+      - name: Run tests
+        run: pdm run pytest tests
