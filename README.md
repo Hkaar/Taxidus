@@ -13,8 +13,52 @@ A game api server written in python
 
 ## User setup
 
-A work in progress~
+Clone the repo
+
+```bash
+git clone https://github.com/Hkaar/Taxidus.git
+```
+
+Install the dependecies
+
+```bash
+pdm install
+```
+
+Initialize the virtual environment
+
+`Bash`
+
+```bash
+source ./.venv/bin/activate
+```
+
+`Powershell`
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+Run the migrations
+
+```bash
+alembic upgrade head
+```
+
+Run the app
+
+`Development mode`
+
+```bash
+fastapi dev src
+```
+
+`Production`
+
+```bash
+fastapi run src
+```
 
 ## Contribution guide
 
-A work in progress~
+See on how to contribute by going to the [contribution guide](https://github.com/Hkaar/7Books/blob/master/CONTRIBUTING.md) of the project
