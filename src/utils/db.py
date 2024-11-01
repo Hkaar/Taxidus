@@ -24,8 +24,7 @@ if CONNECTION == "sqlite":
 else:
     db_url = f"{CONNECTION}+{DRIVER}://{USERNAME}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
 
-connect_args = {}
-engine = AsyncEngine(create_engine(db_url, connect_args=connect_args))
+engine = AsyncEngine(create_engine(db_url))
 
 def get_url():
     return db_url
