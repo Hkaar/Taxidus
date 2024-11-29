@@ -14,7 +14,7 @@ class PlayerInventory extends Model
      *
      * @var string
      */
-    public string $table = "player_inventory";
+    public $table = "player_inventory";
 
     /**
      * The attributes that are mass assignable.

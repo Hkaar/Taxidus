@@ -15,7 +15,7 @@ class Role extends Model
      *
      * @var string
      */
-    public string $table = "roles";
+    public $table = "roles";
 
     /**
      * The attributes that are mass assignable.

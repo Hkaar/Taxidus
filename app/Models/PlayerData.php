@@ -14,7 +14,7 @@ class PlayerData extends Model
      *
      * @var string
      */
-    public string $table = "player_data";
+    public $table = "player_data";
 
     /**
      * The attributes that are mass assignable.

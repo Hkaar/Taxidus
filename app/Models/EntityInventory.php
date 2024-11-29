@@ -14,7 +14,7 @@ class EntityInventory extends Model
      *
      * @var string
      */
-    public string $table = "entity_inventory";
+    public $table = "entity_inventory";
 
     /**
      * The attributes that are mass assignable.

@@ -15,7 +15,7 @@ class SessionRole extends Model
      *
      * @var string
      */
-    public string $table = "session_roles";
+    public $table = "session_roles";
 
     /**
      * The attributes that are mass assignable.

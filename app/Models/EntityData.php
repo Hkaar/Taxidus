@@ -14,7 +14,7 @@ class EntityData extends Model
      *
      * @var string
      */
-    public string $table = "entity_data";
+    public $table = "entity_data";
 
     /**
      * The attributes that are mass assignable.

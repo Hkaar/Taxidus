@@ -14,7 +14,7 @@ class SessionBiome extends Model
      *
      * @var string
      */
-    public string $table = "session_biomes";
+    public $table = "session_biomes";
 
     /**
      * The attributes that are mass assignable.

@@ -15,7 +15,7 @@ class ObjectType extends Model
      *
      * @var string
      */
-    public string $table = "object_types";
+    public $table = "object_types";
 
     /**
      * The attributes that are mass assignable.

@@ -14,7 +14,7 @@ class Player extends Model
      *
      * @var string
      */
-    public string $table = "session_players";
+    public $table = "session_players";
 
     /**
      * The attributes that are mass assignable.

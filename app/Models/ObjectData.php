@@ -14,7 +14,7 @@ class ObjectData extends Model
      *
      * @var string
      */
-    public string $table = "object_data";
+    public $table = "object_data";
 
     /**
      * The attributes that are mass assignable.

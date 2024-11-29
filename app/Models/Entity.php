@@ -14,7 +14,7 @@ class Entity extends Model
      *
      * @var string
      */
-    public string $table = "entities";
+    public $table = "entities";
 
     /**
      * The attributes that are mass assignable.

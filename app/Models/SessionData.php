@@ -14,7 +14,7 @@ class SessionData extends Model
      *
      * @var string
      */
-    public string $table = "session_data";
+    public $table = "session_data";
 
     /**
      * The attributes that are mass assignable.

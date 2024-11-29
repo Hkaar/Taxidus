@@ -14,7 +14,7 @@ class GameSession extends Model
      *
      * @var string
      */
-    public string $table = "game_sessions";
+    public $table = "game_sessions";
 
     /**
      * The attributes that are mass assignable.

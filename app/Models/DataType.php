@@ -15,7 +15,7 @@ class DataType extends Model
      *
      * @var string
      */
-    public string $table = "data_types";
+    public $table = "data_types";
 
     /**
      * The attributes that are mass assignable.

@@ -14,7 +14,7 @@ class BiomeEntity extends Model
      *
      * @var string
      */
-    public string $table = "biome_entities";
+    public $table = "biome_entities";
 
     /**
      * The attributes that are mass assignable.

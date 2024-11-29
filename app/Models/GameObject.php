@@ -14,7 +14,7 @@ class GameObject extends Model
      *
      * @var string
      */
-    public string $table = "biomes";
+    public $table = "biomes";
 
     /**
      * The attributes that are mass assignable.
