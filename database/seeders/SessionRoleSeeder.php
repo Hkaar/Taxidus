@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\SessionRole;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class SessionRoleSeeder extends Seeder
@@ -18,7 +17,7 @@ class SessionRoleSeeder extends Seeder
         foreach ($roles as $role) {
             if (! SessionRole::strictByName($role)->first()) {
                 SessionRole::create([
-                    'name'=> $role,
+                    'name' => $role,
                 ]);
             }
         }

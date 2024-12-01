@@ -15,7 +15,7 @@ class DataType extends Model
      *
      * @var string
      */
-    public $table = "data_types";
+    public $table = 'data_types';
 
     /**
      * The attributes that are mass assignable.
@@ -28,7 +28,7 @@ class DataType extends Model
 
     /**
      * Define the relationship between data types with entity data
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function entityData()
@@ -38,39 +38,38 @@ class DataType extends Model
 
     /**
      * Define the relationship between data types with session data
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function sessionData()
     {
-        return $this->hasMany(GameSession::class,'data_type_id','id');
+        return $this->hasMany(GameSession::class, 'data_type_id', 'id');
     }
 
     /**
      * Define the relationship between data types with player stats
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function playerStats()
     {
-        return $this->hasMany(PlayerStat::class,'data_type_id','id');
+        return $this->hasMany(PlayerStat::class, 'data_type_id', 'id');
     }
 
     /**
      * Define the relationship between data types with player data
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function playerData()
     {
-        return $this->hasMany(PlayerData::class,'data_type_id','id');
+        return $this->hasMany(PlayerData::class, 'data_type_id', 'id');
     }
 
     /**
      * Scope a query strictly by the given name
-     * 
-     * @param \Illuminate\Contracts\Database\Eloquent\Builder $query
-     * @param string $name
+     *
+     * @param  \Illuminate\Contracts\Database\Eloquent\Builder  $query
      * @return Builder
      */
     public function scopeStrictByName(Builder $query, string $name)

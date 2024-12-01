@@ -15,7 +15,7 @@ class ObjectType extends Model
      *
      * @var string
      */
-    public $table = "object_types";
+    public $table = 'object_types';
 
     /**
      * The attributes that are mass assignable.
@@ -28,7 +28,7 @@ class ObjectType extends Model
 
     /**
      * Define the relationship between object types with objects
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function objects()
@@ -38,9 +38,8 @@ class ObjectType extends Model
 
     /**
      * Scope a query strictly by the given name
-     * 
-     * @param \Illuminate\Contracts\Database\Eloquent\Builder $query
-     * @param string $name
+     *
+     * @param  \Illuminate\Contracts\Database\Eloquent\Builder  $query
      * @return Builder
      */
     public function scopeStrictByName(Builder $query, string $name)

@@ -14,7 +14,7 @@ class Entity extends Model
      *
      * @var string
      */
-    public $table = "entities";
+    public $table = 'entities';
 
     /**
      * The attributes that are mass assignable.
@@ -24,42 +24,42 @@ class Entity extends Model
     protected $fillable = [
         'name',
         'desc',
-        'role_id'
+        'role_id',
     ];
 
     /**
      * Define the relationship between entities with biomes
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function biomes()
     {
-        return $this->belongsToMany(Biome::class,'biome_entities');
+        return $this->belongsToMany(Biome::class, 'biome_entities');
     }
 
     /**
      * Define the relationship between entities with objects
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function items()
     {
-        return $this->belongsToMany(GameObject::class,'entity_inventory');
+        return $this->belongsToMany(GameObject::class, 'entity_inventory');
     }
 
     /**
      * Define the relationship between entities with entity data
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function data()
     {
-        return $this->hasMany(EntityData::class,'entity_id', 'id');
+        return $this->hasMany(EntityData::class, 'entity_id', 'id');
     }
 
     /**
      * Define the relationship between entity with entity roles
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function role()

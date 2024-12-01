@@ -14,7 +14,7 @@ class SessionBiome extends Model
      *
      * @var string
      */
-    public $table = "session_biomes";
+    public $table = 'session_biomes';
 
     /**
      * The attributes that are mass assignable.
@@ -29,7 +29,7 @@ class SessionBiome extends Model
 
     /**
      * Define the relationship with biomes
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function biome()
@@ -39,11 +39,11 @@ class SessionBiome extends Model
 
     /**
      * Define the relationship with sessions
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function session()
     {
-        return $this->belongsTo(GameSession::class,'session_id','id');
+        return $this->belongsTo(GameSession::class, 'session_id', 'id');
     }
 }

@@ -14,7 +14,7 @@ class EntityData extends Model
      *
      * @var string
      */
-    public $table = "entity_data";
+    public $table = 'entity_data';
 
     /**
      * The attributes that are mass assignable.
@@ -30,7 +30,7 @@ class EntityData extends Model
 
     /**
      * Define the relationship between entity data with data types
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function type()
@@ -40,11 +40,11 @@ class EntityData extends Model
 
     /**
      * Define the relationship between entity data with entities
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function entity()
     {
-        return $this->belongsTo(Entity::class,'entity_id','id');
+        return $this->belongsTo(Entity::class, 'entity_id', 'id');
     }
 }

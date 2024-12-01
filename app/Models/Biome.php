@@ -14,7 +14,7 @@ class Biome extends Model
      *
      * @var string
      */
-    public $table = "biomes";
+    public $table = 'biomes';
 
     /**
      * The attributes that are mass assignable.
@@ -27,31 +27,31 @@ class Biome extends Model
 
     /**
      * Define the relationship between biomes with entities
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function entities()
     {
-        return $this->belongsToMany(Entity::class,'biome_entities');
+        return $this->belongsToMany(Entity::class, 'biome_entities');
     }
 
     /**
      * Define the relationship between biomes with objects
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function objects()
     {
-        return $this->belongsToMany(GameObject::class,'biome_objects');
+        return $this->belongsToMany(GameObject::class, 'biome_objects');
     }
 
     /**
      * Define the relationship between biomes with sessions
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function sessions()
     {
-        return $this->belongsToMany(GameSession::class,'session_biomes');
+        return $this->belongsToMany(GameSession::class, 'session_biomes');
     }
 }

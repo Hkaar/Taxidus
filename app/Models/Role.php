@@ -15,7 +15,7 @@ class Role extends Model
      *
      * @var string
      */
-    public $table = "roles";
+    public $table = 'roles';
 
     /**
      * The attributes that are mass assignable.
@@ -28,7 +28,7 @@ class Role extends Model
 
     /**
      * Define the relationship between roles with users
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function users()
@@ -38,9 +38,8 @@ class Role extends Model
 
     /**
      * Scope a query strictly by the given name
-     * 
-     * @param \Illuminate\Contracts\Database\Eloquent\Builder $query
-     * @param string $name
+     *
+     * @param  \Illuminate\Contracts\Database\Eloquent\Builder  $query
      * @return Builder
      */
     public function scopeStrictByName(Builder $query, string $name)

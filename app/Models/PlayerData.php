@@ -14,7 +14,7 @@ class PlayerData extends Model
      *
      * @var string
      */
-    public $table = "player_data";
+    public $table = 'player_data';
 
     /**
      * The attributes that are mass assignable.
@@ -30,7 +30,7 @@ class PlayerData extends Model
 
     /**
      * Define the relationship between player data with player
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function player()
@@ -40,11 +40,11 @@ class PlayerData extends Model
 
     /**
      * Define the relationship between player data with data types
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function type()
     {
-        return $this->belongsTo(DataType::class,'data_type_id','id');
+        return $this->belongsTo(DataType::class, 'data_type_id', 'id');
     }
 }

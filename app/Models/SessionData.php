@@ -14,7 +14,7 @@ class SessionData extends Model
      *
      * @var string
      */
-    public $table = "session_data";
+    public $table = 'session_data';
 
     /**
      * The attributes that are mass assignable.
@@ -30,7 +30,7 @@ class SessionData extends Model
 
     /**
      * Define the relationship with sessions
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function session()
@@ -40,7 +40,7 @@ class SessionData extends Model
 
     /**
      * Define the relationship with data types
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function type()

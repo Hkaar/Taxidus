@@ -4,30 +4,28 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
-    /**
-     * Run the migrations.
-     */
+return new class extends Migration
+{
     public function up(): void
     {
-        if (!Schema::hasTable('roles')) {
-            Schema::create("roles", function (Blueprint $table) {
+        if (! Schema::hasTable('roles')) {
+            Schema::create('roles', function (Blueprint $table) {
                 $table->id();
-                $table->string("name")->unique();
+                $table->string('name')->unique();
                 $table->timestamps();
             });
         }
 
-        if (!Schema::hasTable('user_roles')) {
-            Schema::create("user_roles", function (Blueprint $table) {
+        if (! Schema::hasTable('user_roles')) {
+            Schema::create('user_roles', function (Blueprint $table) {
                 $table->id();
-                $table->foreignId("user_id")->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
+                $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
                 $table->foreignId('role_id')->constrained('roles')->cascadeOnDelete()->cascadeOnUpdate();
                 $table->timestamps();
             });
         }
 
-        if (!Schema::hasTable('data_types')) {
+        if (! Schema::hasTable('data_types')) {
             Schema::create('data_types', function (Blueprint $table) {
                 $table->id();
                 $table->string('name')->unique();
@@ -35,7 +33,7 @@ return new class extends Migration {
             });
         }
 
-        if (!Schema::hasTable('entity_types')) {
+        if (! Schema::hasTable('entity_types')) {
             Schema::create('entity_types', function (Blueprint $table) {
                 $table->id();
                 $table->string('name')->unique();
@@ -43,7 +41,7 @@ return new class extends Migration {
             });
         }
 
-        if (!Schema::hasTable('object_types')) {
+        if (! Schema::hasTable('object_types')) {
             Schema::create('object_types', function (Blueprint $table) {
                 $table->id();
                 $table->string('name')->unique();
@@ -51,7 +49,7 @@ return new class extends Migration {
             });
         }
 
-        if (!Schema::hasTable('objects')) {
+        if (! Schema::hasTable('objects')) {
             Schema::create('objects', function (Blueprint $table) {
                 $table->id();
                 $table->string('name')->unique();
@@ -61,7 +59,7 @@ return new class extends Migration {
             });
         }
 
-        if (!Schema::hasTable('object_data')) {
+        if (! Schema::hasTable('object_data')) {
             Schema::create('object_data', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('object_id')->constrained('objects')->cascadeOnDelete()->cascadeOnUpdate();
@@ -72,7 +70,7 @@ return new class extends Migration {
             });
         }
 
-        if (!Schema::hasTable('entity_roles')) {
+        if (! Schema::hasTable('entity_roles')) {
             Schema::create('entity_roles', function (Blueprint $table) {
                 $table->id();
                 $table->string('name')->unique();
@@ -80,7 +78,7 @@ return new class extends Migration {
             });
         }
 
-        if (!Schema::hasTable('entities')) {
+        if (! Schema::hasTable('entities')) {
             Schema::create('entities', function (Blueprint $table) {
                 $table->id();
                 $table->string('name')->unique();
@@ -90,7 +88,7 @@ return new class extends Migration {
             });
         }
 
-        if (!Schema::hasTable('entity_inventory')) {
+        if (! Schema::hasTable('entity_inventory')) {
             Schema::create('entity_inventory', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('entity_id')->constrained('entities')->cascadeOnDelete()->cascadeOnUpdate();
@@ -101,7 +99,7 @@ return new class extends Migration {
             });
         }
 
-        if (!Schema::hasTable('entity_data')) {
+        if (! Schema::hasTable('entity_data')) {
             Schema::create('entity_data', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('entity_id')->constrained('entities')->cascadeOnDelete()->cascadeOnUpdate();
@@ -112,7 +110,7 @@ return new class extends Migration {
             });
         }
 
-        if (!Schema::hasTable('biomes')) {
+        if (! Schema::hasTable('biomes')) {
             Schema::create('biomes', function (Blueprint $table) {
                 $table->id();
                 $table->string('name')->unique();
@@ -120,7 +118,7 @@ return new class extends Migration {
             });
         }
 
-        if (!Schema::hasTable('biome_entities')) {
+        if (! Schema::hasTable('biome_entities')) {
             Schema::create('biome_entities', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('biome_id')->constrained('biomes')->cascadeOnDelete()->cascadeOnUpdate();
@@ -130,7 +128,7 @@ return new class extends Migration {
             });
         }
 
-        if (!Schema::hasTable('biome_objects')) {
+        if (! Schema::hasTable('biome_objects')) {
             Schema::create('biome_objects', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('object_id')->constrained('objects')->cascadeOnDelete()->cascadeOnUpdate();
@@ -139,7 +137,7 @@ return new class extends Migration {
             });
         }
 
-        if (!Schema::hasTable('game_sessions')) {
+        if (! Schema::hasTable('game_sessions')) {
             Schema::create('game_sessions', function (Blueprint $table) {
                 $table->id();
                 $table->string('name')->unique();
@@ -149,7 +147,7 @@ return new class extends Migration {
             });
         }
 
-        if (!Schema::hasTable('session_data')) {
+        if (! Schema::hasTable('session_data')) {
             Schema::create('session_data', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('session_id')->constrained('game_sessions')->cascadeOnDelete()->cascadeOnUpdate();
@@ -160,7 +158,7 @@ return new class extends Migration {
             });
         }
 
-        if (!Schema::hasTable('session_roles')) {
+        if (! Schema::hasTable('session_roles')) {
             Schema::create('session_roles', function (Blueprint $table) {
                 $table->id();
                 $table->string('name')->unique();
@@ -168,7 +166,7 @@ return new class extends Migration {
             });
         }
 
-        if (!Schema::hasTable('session_players')) {
+        if (! Schema::hasTable('session_players')) {
             Schema::create('session_players', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
@@ -178,7 +176,7 @@ return new class extends Migration {
             });
         }
 
-        if (!Schema::hasTable('player_stats')) {
+        if (! Schema::hasTable('player_stats')) {
             Schema::create('player_stats', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('player_id')->constrained('session_players')->cascadeOnDelete()->cascadeOnUpdate();
@@ -189,7 +187,7 @@ return new class extends Migration {
             });
         }
 
-        if (!Schema::hasTable('player_inventory')) {
+        if (! Schema::hasTable('player_inventory')) {
             Schema::create('player_inventory', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('player_id')->constrained('session_players')->cascadeOnDelete()->cascadeOnUpdate();
@@ -199,7 +197,7 @@ return new class extends Migration {
             });
         }
 
-        if (!Schema::hasTable('player_data')) {
+        if (! Schema::hasTable('player_data')) {
             Schema::create('player_data', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('player_id')->constrained('session_players')->cascadeOnDelete()->cascadeOnUpdate();
@@ -210,7 +208,7 @@ return new class extends Migration {
             });
         }
 
-        if (!Schema::hasTable('session_biomes')) {
+        if (! Schema::hasTable('session_biomes')) {
             Schema::create('session_biomes', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('biome_id')->constrained('biomes')->cascadeOnDelete()->cascadeOnUpdate();
@@ -220,7 +218,7 @@ return new class extends Migration {
             });
         }
 
-        if (!Schema::hasTable('session_objects')) {
+        if (! Schema::hasTable('session_objects')) {
             Schema::create('session_objects', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('object_id')->constrained('objects')->cascadeOnDelete()->cascadeOnUpdate();
@@ -230,9 +228,6 @@ return new class extends Migration {
         }
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('session_objects');

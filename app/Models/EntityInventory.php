@@ -14,7 +14,7 @@ class EntityInventory extends Model
      *
      * @var string
      */
-    public $table = "entity_inventory";
+    public $table = 'entity_inventory';
 
     /**
      * The attributes that are mass assignable.
@@ -30,7 +30,7 @@ class EntityInventory extends Model
 
     /**
      * Define the relationship between entity inventory with entity
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function entity()
@@ -40,11 +40,11 @@ class EntityInventory extends Model
 
     /**
      * Define the relationship between entity inventory with objects
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function item()
     {
-        return $this->belongsTo(GameObject::class,'object_id','id');
+        return $this->belongsTo(GameObject::class, 'object_id', 'id');
     }
 }

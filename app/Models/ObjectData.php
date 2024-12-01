@@ -14,7 +14,7 @@ class ObjectData extends Model
      *
      * @var string
      */
-    public $table = "object_data";
+    public $table = 'object_data';
 
     /**
      * The attributes that are mass assignable.
@@ -30,7 +30,7 @@ class ObjectData extends Model
 
     /**
      * Define the relationship between object data with objects
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function object()
@@ -40,7 +40,7 @@ class ObjectData extends Model
 
     /**
      * Define the relationship between object data with data types
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function type()

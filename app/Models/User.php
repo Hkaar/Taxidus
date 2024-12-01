@@ -4,10 +4,10 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Enums\RoleEnum;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Log;
 
 class User extends Authenticatable
 {
@@ -39,21 +39,8 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
-
-    /**
      * Define the relationship with session players
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function players()
@@ -63,7 +50,7 @@ class User extends Authenticatable
 
     /**
      * Define the relationship with roles
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function roles()
@@ -73,9 +60,8 @@ class User extends Authenticatable
 
     /**
      * Checks to see if the current user has the give permission
-     * 
-     * @param int|\App\Enums\RoleEnum|array<int, \App\Enums\RoleEnum|int> $role
-     * @return bool
+     *
+     * @param  int|\App\Enums\RoleEnum|array<int, \App\Enums\RoleEnum|int>  $role
      */
     public function hasPermission(int|RoleEnum|array $roles): bool
     {
@@ -92,56 +78,68 @@ class User extends Authenticatable
 
     /**
      * Attaches a permission role to the current user
-     * 
-     * @param int|\App\Enums\RoleEnum $role
-     * @return bool
      */
     public function attachPermission(int|RoleEnum $role): bool
     {
         $roleId = $role instanceof RoleEnum ? $role->value : $role;
         $role = Role::find($roleId);
 
-        if (!$role) {
+        if (! $role) {
             Log::error("Invalid role was given to be attached:\n
                 Username: {$this->username}\n
                 Given argument: {$roleId}"
             );
+
             return false;
         }
 
         assert($role instanceof Role, "Unexpected instance was detected of {$role} instead of Role!");
 
         $this->roles()->attach($role->id);
+
         return true;
     }
 
     /**
      * Detaches a permission role from the current user
-     * 
-     * @param int|\App\Enums\RoleEnum $role
-     * @return bool
      */
     public function detachPermission(int|RoleEnum $role): bool
     {
         $roleId = $role instanceof RoleEnum ? $role->value : $role;
         $role = Role::find($roleId);
 
-        if (!$role) {
+        if (! $role) {
             Log::error("Invalid role was given to be attached:\n
                 Username: {$this->username}\n
                 Given argument: {$roleId}"
             );
+
             return false;
         }
 
         $exists = $this->hasPermission($roleId);
 
-        if (!$exists) {
+        if (! $exists) {
             Log::error("User doesn't have the relevant permission of {$role->name} to be removed!");
+
             return false;
         }
 
         $this->roles()->detach($role->id);
+
         return true;
+    }
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
     }
 }

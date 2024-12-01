@@ -14,7 +14,7 @@ class Player extends Model
      *
      * @var string
      */
-    public $table = "session_players";
+    public $table = 'session_players';
 
     /**
      * The attributes that are mass assignable.
@@ -29,7 +29,7 @@ class Player extends Model
 
     /**
      * Define the relationship between players with user
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
@@ -39,7 +39,7 @@ class Player extends Model
 
     /**
      * Define the relationship between players with sessions
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function session()
@@ -49,7 +49,7 @@ class Player extends Model
 
     /**
      * Define the relationship between players with player inventory
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function items()
@@ -59,7 +59,7 @@ class Player extends Model
 
     /**
      * Define the relationship between players with player data
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function data()
@@ -69,21 +69,21 @@ class Player extends Model
 
     /**
      * Define the relationship between players with player stats
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function stats()
     {
-        return $this->hasMany(PlayerStat::class,'player_id', 'id');
+        return $this->hasMany(PlayerStat::class, 'player_id', 'id');
     }
 
     /**
      * Define the relationship with session roles
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function role()
     {
-        return $this->belongsTo(SessionRole::class,'role_id', 'id');
+        return $this->belongsTo(SessionRole::class, 'role_id', 'id');
     }
 }

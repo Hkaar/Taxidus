@@ -15,7 +15,7 @@ class EntityRole extends Model
      *
      * @var string
      */
-    public $table = "entity_roles";
+    public $table = 'entity_roles';
 
     /**
      * The attributes that are mass assignable.
@@ -28,7 +28,7 @@ class EntityRole extends Model
 
     /**
      * Define the relationship between entity roles with entities
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function entities()
@@ -38,9 +38,8 @@ class EntityRole extends Model
 
     /**
      * Scope a query strictly by the given name
-     * 
-     * @param \Illuminate\Contracts\Database\Eloquent\Builder $query
-     * @param string $name
+     *
+     * @param  \Illuminate\Contracts\Database\Eloquent\Builder  $query
      * @return Builder
      */
     public function scopeStrictByName(Builder $query, string $name)

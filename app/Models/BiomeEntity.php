@@ -14,7 +14,7 @@ class BiomeEntity extends Model
      *
      * @var string
      */
-    public $table = "biome_entities";
+    public $table = 'biome_entities';
 
     /**
      * The attributes that are mass assignable.
@@ -29,7 +29,7 @@ class BiomeEntity extends Model
 
     /**
      * Define the relationship between biome entities with entities
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function entity()
@@ -39,7 +39,7 @@ class BiomeEntity extends Model
 
     /**
      * Define the relationship between biome entities with biome
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function biome()

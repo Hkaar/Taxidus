@@ -15,7 +15,7 @@ class SessionRole extends Model
      *
      * @var string
      */
-    public $table = "session_roles";
+    public $table = 'session_roles';
 
     /**
      * The attributes that are mass assignable.
@@ -28,7 +28,7 @@ class SessionRole extends Model
 
     /**
      * Define the relationship with session players
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function players()
@@ -38,9 +38,8 @@ class SessionRole extends Model
 
     /**
      * Scope a query strictly by the given name
-     * 
-     * @param \Illuminate\Contracts\Database\Eloquent\Builder $query
-     * @param string $name
+     *
+     * @param  \Illuminate\Contracts\Database\Eloquent\Builder  $query
      * @return Builder
      */
     public function scopeStrictByName(Builder $query, string $name)

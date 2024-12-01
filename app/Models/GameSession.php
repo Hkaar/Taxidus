@@ -14,7 +14,7 @@ class GameSession extends Model
      *
      * @var string
      */
-    public $table = "game_sessions";
+    public $table = 'game_sessions';
 
     /**
      * The attributes that are mass assignable.
@@ -29,7 +29,7 @@ class GameSession extends Model
 
     /**
      * Define the relationship between game sessions with session data
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function data()
@@ -39,17 +39,17 @@ class GameSession extends Model
 
     /**
      * Define the relationship between game sessions with session players
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function players()
     {
-        return $this->hasMany(Player::class,'session_id','id');
+        return $this->hasMany(Player::class, 'session_id', 'id');
     }
 
     /**
      * Define the relationship between game sessions with biomes
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function biomes()
@@ -59,7 +59,7 @@ class GameSession extends Model
 
     /**
      * Define the relationship between game sessions with objects
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function items()

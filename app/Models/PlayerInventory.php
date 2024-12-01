@@ -14,7 +14,7 @@ class PlayerInventory extends Model
      *
      * @var string
      */
-    public $table = "player_inventory";
+    public $table = 'player_inventory';
 
     /**
      * The attributes that are mass assignable.
@@ -29,7 +29,7 @@ class PlayerInventory extends Model
 
     /**
      * Define the relationship between player inventory with players
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function player()
@@ -39,11 +39,11 @@ class PlayerInventory extends Model
 
     /**
      * Define the relationship between players with objects
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function item()
     {
-        return $this->belongsTo(GameObject::class,'object_id','id');
+        return $this->belongsTo(GameObject::class, 'object_id', 'id');
     }
 }

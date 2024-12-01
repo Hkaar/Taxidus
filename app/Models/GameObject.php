@@ -14,7 +14,7 @@ class GameObject extends Model
      *
      * @var string
      */
-    public $table = "biomes";
+    public $table = 'biomes';
 
     /**
      * The attributes that are mass assignable.
@@ -29,7 +29,7 @@ class GameObject extends Model
 
     /**
      * Define the relationship between objects with object types
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function type()
@@ -39,7 +39,7 @@ class GameObject extends Model
 
     /**
      * Define the relationship between objects with object data
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function data()
@@ -49,17 +49,17 @@ class GameObject extends Model
 
     /**
      * Define the relationship between objects with player inventory
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function playerInventory()
     {
-        return $this->hasMany(PlayerInventory::class,'object_id', 'id');
+        return $this->hasMany(PlayerInventory::class, 'object_id', 'id');
     }
 
     /**
      * Define the relationship between objects with entity inventory
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function entityInventory()
@@ -69,7 +69,7 @@ class GameObject extends Model
 
     /**
      * Define the relationship between objects with biomes
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function biomes()
@@ -79,7 +79,7 @@ class GameObject extends Model
 
     /**
      * Define the relationship between objects with sessions
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function sessions()

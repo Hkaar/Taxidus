@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 
 class FlushSessions extends Command
 {
@@ -26,18 +26,18 @@ class FlushSessions extends Command
      */
     public function handle()
     {
-       $driver = config('session.driver');
+        $driver = config('session.driver');
 
-       match ($driver) {
-        'database' => $this->cleanDB(),
-        'file' => $this->cleanFile(),
-        default => $this->error("\nNo provided method for clearing sessions with the {$driver} driver!"),
-       };
+        match ($driver) {
+            'database' => $this->cleanDB(),
+            'file' => $this->cleanFile(),
+            default => $this->error("\nNo provided method for clearing sessions with the {$driver} driver!"),
+        };
     }
 
     /**
      * Flush all file based user sessions
-     * 
+     *
      * @return void
      */
     protected function cleanFile()
@@ -47,8 +47,8 @@ class FlushSessions extends Command
 
         $files = scandir($directory);
 
-        foreach ( $files as $file ) {
-            if( !in_array($file,$ignoreFiles) ) {
+        foreach ($files as $file) {
+            if (! in_array($file, $ignoreFiles)) {
                 unlink($directory . '/' . $file);
             }
         }
@@ -58,7 +58,7 @@ class FlushSessions extends Command
 
     /**
      * Flush all database based user sessions
-     * 
+     *
      * @return void
      */
     protected function cleanDB()

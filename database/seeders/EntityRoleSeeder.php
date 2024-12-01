@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\EntityRole;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class EntityRoleSeeder extends Seeder
@@ -18,7 +17,7 @@ class EntityRoleSeeder extends Seeder
         foreach ($roles as $role) {
             if (! EntityRole::strictByName($role)->first()) {
                 EntityRole::create([
-                    'name'=> $role,
+                    'name' => $role,
                 ]);
             }
         }
