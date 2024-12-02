@@ -3,13 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class SessionRole extends Model
 {
-    use HasFactory;
-
     /**
      * The table associated with the model.
      *
@@ -20,7 +17,7 @@ class SessionRole extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'name',
@@ -29,7 +26,7 @@ class SessionRole extends Model
     /**
      * Define the relationship with session players
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<Player, covariant SessionRole>
      */
     public function players()
     {
@@ -39,7 +36,6 @@ class SessionRole extends Model
     /**
      * Scope a query strictly by the given name
      *
-     * @param  \Illuminate\Contracts\Database\Eloquent\Builder  $query
      * @return Builder
      */
     public function scopeStrictByName(Builder $query, string $name)

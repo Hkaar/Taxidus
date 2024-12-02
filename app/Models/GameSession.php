@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class GameSession extends Model
 {
-    use HasFactory;
-
     /**
      * The table associated with the model.
      *
@@ -19,7 +16,7 @@ class GameSession extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'name',
@@ -30,7 +27,7 @@ class GameSession extends Model
     /**
      * Define the relationship between game sessions with session data
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<SessionData, covariant GameSession>
      */
     public function data()
     {
@@ -40,7 +37,7 @@ class GameSession extends Model
     /**
      * Define the relationship between game sessions with session players
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<Player, covariant GameSession>
      */
     public function players()
     {
@@ -50,7 +47,7 @@ class GameSession extends Model
     /**
      * Define the relationship between game sessions with biomes
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<Biome, covariant GameSession>
      */
     public function biomes()
     {
@@ -60,7 +57,7 @@ class GameSession extends Model
     /**
      * Define the relationship between game sessions with objects
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<GameObject, covariant GameSession>
      */
     public function items()
     {

@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class ObjectData extends Model
 {
-    use HasFactory;
-
     /**
      * The table associated with the model.
      *
@@ -19,7 +16,7 @@ class ObjectData extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'object_id',
@@ -31,7 +28,7 @@ class ObjectData extends Model
     /**
      * Define the relationship between object data with objects
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<GameObject, covariant ObjectData>
      */
     public function object()
     {
@@ -41,7 +38,7 @@ class ObjectData extends Model
     /**
      * Define the relationship between object data with data types
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<DataType, covariant ObjectData>
      */
     public function type()
     {

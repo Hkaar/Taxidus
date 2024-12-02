@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Player extends Model
 {
-    use HasFactory;
-
     /**
      * The table associated with the model.
      *
@@ -19,7 +16,7 @@ class Player extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'user_id',
@@ -30,7 +27,7 @@ class Player extends Model
     /**
      * Define the relationship between players with user
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, covariant Player>
      */
     public function user()
     {
@@ -40,7 +37,7 @@ class Player extends Model
     /**
      * Define the relationship between players with sessions
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<GameSession, covariant Player>
      */
     public function session()
     {
@@ -50,7 +47,7 @@ class Player extends Model
     /**
      * Define the relationship between players with player inventory
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<PlayerInventory, covariant Player>
      */
     public function items()
     {
@@ -60,7 +57,7 @@ class Player extends Model
     /**
      * Define the relationship between players with player data
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<PlayerData, covariant Player>
      */
     public function data()
     {
@@ -70,7 +67,7 @@ class Player extends Model
     /**
      * Define the relationship between players with player stats
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<PlayerStat, covariant Player>
      */
     public function stats()
     {
@@ -80,7 +77,7 @@ class Player extends Model
     /**
      * Define the relationship with session roles
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<SessionRole, covariant Player>
      */
     public function role()
     {

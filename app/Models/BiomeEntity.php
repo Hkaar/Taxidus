@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class BiomeEntity extends Model
 {
-    use HasFactory;
-
     /**
      * The table associated with the model.
      *
@@ -19,7 +16,7 @@ class BiomeEntity extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'biome_id',
@@ -30,7 +27,7 @@ class BiomeEntity extends Model
     /**
      * Define the relationship between biome entities with entities
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Entity, covariant BiomeEntity>
      */
     public function entity()
     {
@@ -40,7 +37,7 @@ class BiomeEntity extends Model
     /**
      * Define the relationship between biome entities with biome
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Biome, covariant BiomeEntity>
      */
     public function biome()
     {

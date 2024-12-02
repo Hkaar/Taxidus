@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class SessionData extends Model
 {
-    use HasFactory;
-
     /**
      * The table associated with the model.
      *
@@ -19,7 +16,7 @@ class SessionData extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'session_id',
@@ -31,7 +28,7 @@ class SessionData extends Model
     /**
      * Define the relationship with sessions
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<GameSession, covariant SessionData>
      */
     public function session()
     {
@@ -41,7 +38,7 @@ class SessionData extends Model
     /**
      * Define the relationship with data types
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<DataType, covariant SessionData>
      */
     public function type()
     {

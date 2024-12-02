@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class SessionBiome extends Model
 {
-    use HasFactory;
-
     /**
      * The table associated with the model.
      *
@@ -19,7 +16,7 @@ class SessionBiome extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'biome_id',
@@ -30,7 +27,7 @@ class SessionBiome extends Model
     /**
      * Define the relationship with biomes
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Biome, covariant SessionBiome>
      */
     public function biome()
     {
@@ -40,7 +37,7 @@ class SessionBiome extends Model
     /**
      * Define the relationship with sessions
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<GameSession, covariant SessionBiome>
      */
     public function session()
     {

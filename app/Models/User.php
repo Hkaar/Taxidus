@@ -17,7 +17,7 @@ class User extends Authenticatable
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'username',
@@ -31,7 +31,7 @@ class User extends Authenticatable
     /**
      * The attributes that should be hidden for serialization.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $hidden = [
         'password',
@@ -41,7 +41,7 @@ class User extends Authenticatable
     /**
      * Define the relationship with session players
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<Player, covariant User>
      */
     public function players()
     {
@@ -51,7 +51,7 @@ class User extends Authenticatable
     /**
      * Define the relationship with roles
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<Role, covariant User>
      */
     public function roles()
     {
@@ -61,7 +61,7 @@ class User extends Authenticatable
     /**
      * Checks to see if the current user has the give permission
      *
-     * @param  int|\App\Enums\RoleEnum|array<int, \App\Enums\RoleEnum|int>  $role
+     * @param  int|\App\Enums\RoleEnum|array<int, \App\Enums\RoleEnum|int>  $roles
      */
     public function hasPermission(int|RoleEnum|array $roles): bool
     {
@@ -92,8 +92,6 @@ class User extends Authenticatable
 
             return false;
         }
-
-        assert($role instanceof Role, "Unexpected instance was detected of {$role} instead of Role!");
 
         $this->roles()->attach($role->id);
 

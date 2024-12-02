@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class EntityInventory extends Model
 {
-    use HasFactory;
-
     /**
      * The table associated with the model.
      *
@@ -19,7 +16,7 @@ class EntityInventory extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'entity_id',
@@ -31,7 +28,7 @@ class EntityInventory extends Model
     /**
      * Define the relationship between entity inventory with entity
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Entity, covariant EntityInventory>
      */
     public function entity()
     {
@@ -41,7 +38,7 @@ class EntityInventory extends Model
     /**
      * Define the relationship between entity inventory with objects
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<GameObject, covariant EntityInventory>
      */
     public function item()
     {

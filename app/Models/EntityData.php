@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class EntityData extends Model
 {
-    use HasFactory;
-
     /**
      * The table associated with the model.
      *
@@ -19,7 +16,7 @@ class EntityData extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'entity_id',
@@ -31,7 +28,7 @@ class EntityData extends Model
     /**
      * Define the relationship between entity data with data types
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<DataType, covariant EntityData>
      */
     public function type()
     {
@@ -41,7 +38,7 @@ class EntityData extends Model
     /**
      * Define the relationship between entity data with entities
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Entity, covariant EntityData>
      */
     public function entity()
     {

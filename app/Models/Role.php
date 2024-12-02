@@ -3,13 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-    use HasFactory;
-
     /**
      * The table associated with the model.
      *
@@ -20,7 +17,7 @@ class Role extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'name',
@@ -29,7 +26,7 @@ class Role extends Model
     /**
      * Define the relationship between roles with users
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<User, covariant Role>
      */
     public function users()
     {
@@ -39,7 +36,6 @@ class Role extends Model
     /**
      * Scope a query strictly by the given name
      *
-     * @param  \Illuminate\Contracts\Database\Eloquent\Builder  $query
      * @return Builder
      */
     public function scopeStrictByName(Builder $query, string $name)

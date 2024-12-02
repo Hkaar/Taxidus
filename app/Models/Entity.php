@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Entity extends Model
 {
-    use HasFactory;
-
     /**
      * The table associated with the model.
      *
@@ -19,7 +16,7 @@ class Entity extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'name',
@@ -30,7 +27,7 @@ class Entity extends Model
     /**
      * Define the relationship between entities with biomes
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<Biome, covariant Entity>
      */
     public function biomes()
     {
@@ -40,7 +37,7 @@ class Entity extends Model
     /**
      * Define the relationship between entities with objects
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<GameObject, covariant Entity>
      */
     public function items()
     {
@@ -50,7 +47,7 @@ class Entity extends Model
     /**
      * Define the relationship between entities with entity data
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<EntityData, covariant Entity>
      */
     public function data()
     {
@@ -60,7 +57,7 @@ class Entity extends Model
     /**
      * Define the relationship between entity with entity roles
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<EntityRole, covariant Entity>
      */
     public function role()
     {

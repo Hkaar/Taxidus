@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class PlayerData extends Model
 {
-    use HasFactory;
-
     /**
      * The table associated with the model.
      *
@@ -19,7 +16,7 @@ class PlayerData extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'player_id',
@@ -31,7 +28,7 @@ class PlayerData extends Model
     /**
      * Define the relationship between player data with player
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Player, covariant PlayerData>
      */
     public function player()
     {
@@ -41,7 +38,7 @@ class PlayerData extends Model
     /**
      * Define the relationship between player data with data types
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<DataType, covariant PlayerData>
      */
     public function type()
     {

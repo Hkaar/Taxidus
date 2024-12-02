@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class GameObject extends Model
 {
-    use HasFactory;
-
     /**
      * The table associated with the model.
      *
@@ -19,7 +16,7 @@ class GameObject extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'name',
@@ -30,7 +27,7 @@ class GameObject extends Model
     /**
      * Define the relationship between objects with object types
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<ObjectType, covariant GameObject>
      */
     public function type()
     {
@@ -40,7 +37,7 @@ class GameObject extends Model
     /**
      * Define the relationship between objects with object data
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<ObjectData, covariant GameObject>
      */
     public function data()
     {
@@ -50,7 +47,7 @@ class GameObject extends Model
     /**
      * Define the relationship between objects with player inventory
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<PlayerInventory, covariant GameObject>
      */
     public function playerInventory()
     {
@@ -60,7 +57,7 @@ class GameObject extends Model
     /**
      * Define the relationship between objects with entity inventory
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<EntityInventory, covariant GameObject>
      */
     public function entityInventory()
     {
@@ -70,7 +67,7 @@ class GameObject extends Model
     /**
      * Define the relationship between objects with biomes
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<Biome, covariant GameObject>
      */
     public function biomes()
     {
@@ -80,7 +77,7 @@ class GameObject extends Model
     /**
      * Define the relationship between objects with sessions
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<GameSession, covariant GameObject>
      */
     public function sessions()
     {

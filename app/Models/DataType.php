@@ -3,13 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class DataType extends Model
 {
-    use HasFactory;
-
     /**
      * The table associated with the model.
      *
@@ -20,7 +17,7 @@ class DataType extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'name',
@@ -29,7 +26,7 @@ class DataType extends Model
     /**
      * Define the relationship between data types with entity data
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<Entity, covariant DataType>
      */
     public function entityData()
     {
@@ -39,7 +36,7 @@ class DataType extends Model
     /**
      * Define the relationship between data types with session data
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<GameSession, covariant DataType>
      */
     public function sessionData()
     {
@@ -49,7 +46,7 @@ class DataType extends Model
     /**
      * Define the relationship between data types with player stats
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<PlayerStat, covariant DataType>
      */
     public function playerStats()
     {
@@ -59,7 +56,7 @@ class DataType extends Model
     /**
      * Define the relationship between data types with player data
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<PlayerData, covariant DataType>
      */
     public function playerData()
     {
@@ -69,7 +66,6 @@ class DataType extends Model
     /**
      * Scope a query strictly by the given name
      *
-     * @param  \Illuminate\Contracts\Database\Eloquent\Builder  $query
      * @return Builder
      */
     public function scopeStrictByName(Builder $query, string $name)
