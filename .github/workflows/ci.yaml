@@ -99,7 +99,7 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_DATABASE: tryout
+          MYSQL_DATABASE: taxidus
           MYSQL_ROOT_USERNAME: root
           MYSQL_ROOT_PASSWORD: root
         ports:
