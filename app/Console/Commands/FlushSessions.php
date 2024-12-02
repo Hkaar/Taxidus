@@ -24,7 +24,7 @@ class FlushSessions extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): void
     {
         $driver = config('session.driver');
 
@@ -37,15 +37,19 @@ class FlushSessions extends Command
 
     /**
      * Flush all file based user sessions
-     *
-     * @return void
      */
-    protected function cleanFile()
+    protected function cleanFile(): void
     {
         $directory = config('session.files');
         $ignoreFiles = ['.gitignore', '.', '..'];
 
         $files = scandir($directory);
+
+        if (! $files) {
+            $this->error('Failed accessing session directory!');
+
+            return;
+        }
 
         foreach ($files as $file) {
             if (! in_array($file, $ignoreFiles)) {
@@ -58,10 +62,8 @@ class FlushSessions extends Command
 
     /**
      * Flush all database based user sessions
-     *
-     * @return void
      */
-    protected function cleanDB()
+    protected function cleanDB(): void
     {
         $table = config('session.table');
         DB::table($table)->truncate();

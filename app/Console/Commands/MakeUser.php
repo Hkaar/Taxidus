@@ -26,7 +26,7 @@ class MakeUser extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): int
     {
         $username = $this->argument('username')
             ?? $this->ask("What is the user's username?");
