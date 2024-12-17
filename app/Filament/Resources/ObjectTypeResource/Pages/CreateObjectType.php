@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\ObjectTypeResource\Pages;
 
 use App\Filament\Resources\ObjectTypeResource;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateObjectType extends CreateRecord
